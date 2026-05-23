@@ -1,0 +1,12 @@
+auto-cpufreq
+envycontrol
+linux70-tkg-bore
+linux70-tkg-bore-headers
+ltspice
+paru
+paru-debug
+python-imageio-ffmpeg
+python-screeninfo
+quickshell-overview-git
+spotify
+waypaper

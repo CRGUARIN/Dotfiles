@@ -1,0 +1,80 @@
+/* Configuración general de la fuente y color */
+* {
+    /* IMPORTANTE: Necesitas una Nerd Font instalada para que se vean los íconos */
+    font-family: "JetBrainsMono Nerd Font", sans-serif; 
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff; /* Letras totalmente blancas */
+    border: none;
+    box-shadow: none;
+}
+
+/* El fondo principal de la barra lo hacemos completamente transparente */
+window#waybar {
+    background-color: transparent;
+}
+
+/* Aquí creamos el estilo de "PÍLDORA" para los 3 bloques */
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: rgba(0, 0, 0, 0.6); /* Negro al 60% de opacidad */
+    border-radius: 30px; /* Bordes extremadamente redondeados para el efecto píldora */
+    padding: 0px 9px; /* Espacio interior para que no quede pegado al borde */
+}
+
+/* --- Pequeños ajustes para que se vea más limpio --- */
+
+/* Separación entre los iconos de la derecha */
+#network, #pulseaudio, #backlight, #battery, #tray {
+    margin-left: 5px; 
+    margin-right: 13px;
+}
+
+/* Estilos para los números de los workspaces de Hyprland */
+#workspaces button {
+    color: #aaaaaa; /* Gris claro para los inactivos */
+    padding: 0px 8px;
+    border-radius: 15px;
+    transition: all 0.2s ease; /* Pequeña animación al cambiar */
+}
+
+#tray {
+    margin-left: 5px; /* Esto empuja el tray alejándolo del último ícono (batería) */
+    margin-right: 13px; 
+    /* Mantén las reglas que ya tenías, como estas: */ 
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.6); 
+}
+
+tooltip {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 30px; /* Aumenta este padding para darle más aire a la caja */
+}
+
+tooltip label {
+    color: #ffffff;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 15px; /* Tamaño base para cosas como WiFi o Batería */
+}
+
+tooltip label tt {
+    font-size: 30px; /* ¡Aquí está la clave! Aumenta esto a 18px, 20px, etc. */
+}
+
+/* Workspace en el que estás actualmente */
+#workspaces button.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2); /* Un fondo blanquito sutil */
+}
+
+/* Workspace cuando pasas el cursor por encima */
+#workspaces button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+
