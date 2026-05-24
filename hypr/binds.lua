@@ -14,8 +14,9 @@ local menu        = "fuzzel"
 ---- SYSTEM AND SESION ----
 
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + M",
+hl.bind(mainMod .. " + CONTROL + C",
   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + CONTROL + P", hl.dsp.exec_cmd("kitty -e shutdown now"))
 
 ---- WINDOWS MANAGMENT ----
 
@@ -49,7 +50,7 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SHIFT  + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT  + B", hl.dsp.exec_cmd("firefox"))
 hl.bind(mainMod .. " + SHIFT  + M", hl.dsp.exec_cmd("spotify"))
-hl.bind(mainMod .. " + SHIFT  + N", hl.dsp.exec_cmd("kitty -e nvim"))
+hl.bind(mainMod .. " + SHIFT  + N", hl.dsp.exec_cmd("neovide"))
 
 ---- Floating applications (TUI / Utilities) ----
 
@@ -57,7 +58,8 @@ hl.bind(mainMod .. " + CONTROL + B", hl.dsp.exec_cmd("kitty --class floats -e bl
 hl.bind(mainMod .. " + CONTROL + W", hl.dsp.exec_cmd("kitty --class floats -e nmtui"))
 hl.bind(mainMod .. " + CONTROL + A", hl.dsp.exec_cmd("kitty --class floats -e wiremix"))
 hl.bind(mainMod .. " + CONTROL + T", hl.dsp.exec_cmd("kitty --class floatm -e btop"))
-hl.bind(mainMod .. " + SHIFT   + P", hl.dsp.exec_cmd("kitty --class floatms -e nvim ~/Documentos/Notas/Pendientes.md"))
+hl.bind(mainMod .. " + CONTROL + SHIFT   + P", hl.dsp.exec_cmd("neovide ~/Documentos/Notas/Pendientes.md"))
+hl.bind(mainMod .. " + CONTROL + SHIFT   + D", hl.dsp.exec_cmd("neovide ~/Documentos/Notas/Dudas.md"))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("kitty --class floats -e qalc"))
 
 ---- Utilities (Screenshots, Wallpaper, UI) ----
@@ -65,6 +67,7 @@ hl.bind("XF86Calculator", hl.dsp.exec_cmd("kitty --class floats -e qalc"))
 hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
 hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/change_wallpaper.sh"))
 hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("qs ipc -c overview call overview toggle"))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
 
 ---- Workspaces ----
 

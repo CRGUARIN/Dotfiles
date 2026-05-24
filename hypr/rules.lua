@@ -31,7 +31,7 @@ hl.window_rule({
     class = "floats",
   },
   float = true,
-  size = { 800, 600 },
+  size = { 900, 500 },
   center = true,
 })
 
@@ -42,15 +42,15 @@ hl.window_rule({
     class = "floatm",
   },
   float = true,
-  size = { 1000, 700 },
+  size = { 1100, 700 },
   center = true,
 })
 
--- Float medium size - special workspace
+-- Float medium size - special workspace // for neovide with "Pendientes.md"
 hl.window_rule({
-  name = "floatms",
+  name = "neovidep",
   match = {
-    class = "floatms",
+    title = "~/Documentos/Notas/Pendientes.md",
   },
   float = true,
   size = { 1000, 700 },
@@ -58,7 +58,18 @@ hl.window_rule({
   workspace = "special:magic",
 })
 
---
+-- Float medium size - special workspace // for neovide with "Dudas.md"
+hl.window_rule({
+  name = "neovided",
+  match = {
+    title = "~/Documentos/Notas/Dudas.md",
+  },
+  float = true,
+  size = { 1000, 700 },
+  center = true,
+  workspace = "special:magic",
+})
+
 -- Hyprland-run windowrule
 hl.window_rule({
   name  = "move-hyprland-run",

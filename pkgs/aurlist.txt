@@ -1,5 +1,6 @@
 auto-cpufreq
 envycontrol
+limine-snapper-sync
 linux70-tkg-bore
 linux70-tkg-bore-headers
 ltspice

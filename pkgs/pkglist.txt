@@ -51,8 +51,10 @@ cairo
 cairomm
 cblas
 clucene
+cmake
 coreutils
 cpio
+cppdap
 cpptrace
 cryptsetup
 curl
@@ -72,7 +74,6 @@ dkms
 dmidecode
 double-conversion
 duktape
-dunst
 e2fsprogs
 efibootmgr
 efivar
@@ -138,6 +139,7 @@ gpgme
 gpgmepp
 gpm
 gpsd
+granite7
 graphene
 graphicsmagick
 graphite
@@ -157,6 +159,7 @@ gtk-layer-shell
 gtk-update-icon-cache
 gtk3
 gtk4
+gtk4-layer-shell
 gtkmm3
 guile
 gumbo-parser
@@ -305,6 +308,7 @@ libasan
 libass
 libassuan
 libasyncns
+libatasmart
 libatomic
 libatomic_ops
 libavc1394
@@ -312,10 +316,20 @@ libavif
 libayatana-appindicator
 libayatana-indicator
 libb2
+libblockdev
+libblockdev-crypto
+libblockdev-fs
+libblockdev-loop
+libblockdev-mdraid
+libblockdev-nvme
+libblockdev-part
+libblockdev-smart
+libblockdev-swap
 libbluray
 libbpf
 libbs2b
 libbsd
+libbytesize
 libcanberra
 libcap
 libcap-ng
@@ -358,6 +372,7 @@ libfreehand
 libfyaml
 libgcc
 libgcrypt
+libgee
 libgfortran
 libgirepository
 libglvnd
@@ -407,8 +422,10 @@ libngtcp2
 libnice
 libnl
 libnm
+libnotify
 libnsl
 libnumbertext
+libnvme
 libobjc
 libodfgen
 libogg
@@ -518,6 +535,7 @@ libxt
 libxtst
 libxv
 libxxf86vm
+libyaml
 libyuv
 libzip
 libzmf
@@ -555,6 +573,7 @@ mailcap
 make
 matugen
 md4c
+mdadm
 mesa
 mkinitcpio
 mkinitcpio-busybox
@@ -568,6 +587,7 @@ muparser
 nano
 ncurses
 neon
+neovide
 neovim
 nettle
 networkmanager
@@ -590,6 +610,7 @@ opencore-amr
 openjpeg2
 openmpi
 openpmix
+openssh
 openssl
 openucx
 opus
@@ -602,6 +623,7 @@ pam
 pambase
 pango
 pangomm
+parted
 patch
 pciutils
 pcre
@@ -639,6 +661,7 @@ python-charset-normalizer
 python-click
 python-dbus
 python-distro
+python-docopt
 python-gobject
 python-idna
 python-imageio
@@ -646,6 +669,7 @@ python-jaraco.collections
 python-jaraco.context
 python-jaraco.functools
 python-jaraco.text
+python-keyutils
 python-mako
 python-markdown
 python-markupsafe
@@ -666,6 +690,7 @@ python-urllib3
 python-urwid
 python-wcwidth
 python-wheel
+python-yaml
 qhull
 qrupdate
 qscintilla-qt6
@@ -689,6 +714,7 @@ re2
 readline
 redland
 resvg
+rhash
 ripgrep
 rtkit
 rubberband
@@ -732,6 +758,8 @@ suitesparse
 sundials
 svt-av1
 swappy
+swaync
+swayosd
 systemd
 systemd-libs
 systemd-sysvcompat
@@ -756,6 +784,8 @@ ttf-jetbrains-mono-nerd
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-common
 tzdata
+udiskie
+udisks2
 ufw
 unibilium
 upower
@@ -767,6 +797,7 @@ v4l-utils
 vapoursynth
 vid.stab
 vmaf
+volume_key
 vulkan-icd-loader
 waybar
 wayland
