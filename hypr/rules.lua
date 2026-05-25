@@ -70,6 +70,28 @@ hl.window_rule({
   workspace = "special:magic",
 })
 
+-- Float medium size - special workspace // for neovide with "Observaciones.md"
+hl.window_rule({
+  name = "neovided",
+  match = {
+    title = "~/Documentos/Notas/Observaciones.md",
+  },
+  float = true,
+  size = { 1000, 700 },
+  center = true,
+  workspace = "special:magic",
+})
+
+hl.window_rule({
+  name = "pkgtui",
+  match = {
+    class = "pkgtui",
+  },
+  float = true,
+  size = { 700, 400 },
+  center = true,
+})
+
 -- Hyprland-run windowrule
 hl.window_rule({
   name  = "move-hyprland-run",

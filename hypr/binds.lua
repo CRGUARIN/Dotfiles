@@ -2,10 +2,20 @@
 ---- VARIABLES AND ALIAS ----
 -----------------------------
 
-local mainMod     = "SUPER"
-local terminal    = "kitty --class floatm"
-local fileManager = "kitty --class floats -e yazi"
-local menu        = "fuzzel"
+---- Applications ----
+
+local mainMod       = "SUPER"
+local terminal      = "kitty --class floatm"
+local fileManager   = "kitty --class floats -e yazi"
+local menu          = "fuzzel"
+
+---- Scripts ----
+
+-- Reminder --
+local reminder      = "~/Documentos/Dotfiles/Scripts/hypr-reminder.sh"
+local reminderList  = "~/Documentos/Dotfiles/Scripts/hypr-reminder.sh show"
+local reminderClear = "~/Documentos/Dotfiles/Scripts/hypr-reminder.sh clear"
+
 
 ----------------------
 ---- KEYBINDINGS -----
@@ -16,7 +26,8 @@ local menu        = "fuzzel"
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + CONTROL + C",
   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + CONTROL + P", hl.dsp.exec_cmd("kitty -e shutdown now"))
+-- hl.bind(mainMod .. " + CONTROL + P", hl.dsp.exec_cmd("kitty -e shutdown now"))
+-- hl.bind(mainMod .. " + CONTROL + R", hl.dsp.exec_cmd("kitty -e reboot"))
 
 ---- WINDOWS MANAGMENT ----
 
@@ -60,6 +71,8 @@ hl.bind(mainMod .. " + CONTROL + A", hl.dsp.exec_cmd("kitty --class floats -e wi
 hl.bind(mainMod .. " + CONTROL + T", hl.dsp.exec_cmd("kitty --class floatm -e btop"))
 hl.bind(mainMod .. " + CONTROL + SHIFT   + P", hl.dsp.exec_cmd("neovide ~/Documentos/Notas/Pendientes.md"))
 hl.bind(mainMod .. " + CONTROL + SHIFT   + D", hl.dsp.exec_cmd("neovide ~/Documentos/Notas/Dudas.md"))
+hl.bind(mainMod .. " + CONTROL + SHIFT   + O", hl.dsp.exec_cmd("neovide ~/Documentos/Notas/Observaciones.md"))
+hl.bind(mainMod .. " + CONTROL + P", hl.dsp.exec_cmd("kitty --class pkgtui fish -c 'pkgtui'"))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("kitty --class floats -e qalc"))
 
 ---- Utilities (Screenshots, Wallpaper, UI) ----
@@ -68,6 +81,10 @@ hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
 hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/change_wallpaper.sh"))
 hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("qs ipc -c overview call overview toggle"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
+hl.bind(mainMod .. " + ALT + R", hl.dsp.exec_cmd(reminder))
+hl.bind(mainMod .. " + ALT + CONTROL + R", hl.dsp.exec_cmd(reminderList))
+hl.bind(mainMod .. " + ALT + SHIFT + R", hl.dsp.exec_cmd(reminderClear))
+hl.bind(mainMod .. " + ALT + N", hl.dsp.exec_cmd("swaync-client -C")) -- Clear all swaync notifications
 
 ---- Workspaces ----
 

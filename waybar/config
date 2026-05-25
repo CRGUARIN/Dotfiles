@@ -1,43 +1,36 @@
 {
     "layer": "top",
     "position": "top",
-    "margin-top": 10,     // Espacio arriba para que flote
-    "margin-left": 20,    // Margen izquierdo
-    "margin-right": 20,   // Margen derecho
-    "height": 30,         // Grosor de la barra
-    "spacing": 2,        // Espacio entre módulos
+    "margin-top": 10,     
+    "margin-left": 20,    
+    "margin-right": 20,  
+    "height": 30,        
+    "spacing": 2,        
 
-    // Las 3 "Píldoras"
-    "modules-left": ["clock"],
-    "modules-center": ["hyprland/workspaces"],
+    // Components
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
     "modules-right": ["tray", "network", "pulseaudio", "bluetooth", "backlight", "battery"],
 
-    // --- Configuración de lo elemental ---
-
+    // Components configuration
     "hyprland/workspaces": {
-        "format": "{name}",     // Muestra el número del workspace
-        "disable-scroll": true, // Evita cambiar de workspace con la rueda del ratón por accidente
+        "format": "{name}",     
+        "disable-scroll": true, 
         "all-outputs": true, 
         "persistent-workspaces": {
           "*": [1, 2, 3, 4, 5]
       },
     },
-      
-    "bluetooth": {
-        "format": "󰂯  ",
-        "format-disabled": "󰂲  ", 
-        "format-connected": "󰂱  ", 
-        "tooltip-format-connected": "{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage}%)",
-        "on-click": "kitty --class floats -e bluetui"
-    },
-
+   
     "clock": {
         "format": "{:%H:%M • %d.%m}",
         "tooltip": true,
         "tooltip-format": "<tt><small>{calendar}</small></tt>"
     }, 
+
+    "tray": {
+        "spacing": 2
+    },
 
     "network": {
         "format-wifi": "󰖩 ",
@@ -49,16 +42,7 @@
         "tooltip-format": "Red: {essid}\nIntensidad: {signalStrength}%",
         "on-click": "kitty --class floats -e nmtui",
     },
-
-    "backlight": {
-        "format": "{icon}",
-        "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "], // Iconos de Nerd Fonts de menos a más brillo
-        "on-scroll-up": "brightnessctl set +5%",   // Sube el brillo girando la rueda del ratón
-        "tooltip": true,
-        "tooltip-format": "{percent}%",
-        "on-scroll-down": "brightnessctl set 5%-"  // Baja el brillo girando la rueda del ratón
-    },
-
+    
     "pulseaudio": {
         "format": "{icon}",
         "format-muted": "󰝟 ",
@@ -69,6 +53,25 @@
         "tooltip": true,
         "tooltip-format": "{volume}%",
     },    
+    
+     "bluetooth": {
+        "format": "󰂯  ",
+        "format-disabled": "󰂲  ", 
+        "format-connected": "󰂱  ", 
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage}%)",
+        "on-click": "kitty --class floats -e bluetui"
+    },
+
+    "backlight": {
+        "format": "{icon}",
+        "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "], // Iconos de Nerd Fonts de menos a más brillo
+        "on-scroll-up": "brightnessctl set +5%",   // Sube el brillo girando la rueda del ratón
+        "tooltip": true,
+        "tooltip-format": "{percent}%",
+        "on-scroll-down": "brightnessctl set 5%-"  // Baja el brillo girando la rueda del ratón
+    },
 
     "battery": {
         "states": {
@@ -79,9 +82,7 @@
         "format-icons": ["", "", "", "", ""],
         "tooltip": true,
         "tooltip-format": "{capacity}%",
-    },
-
-    "tray": {
-        "spacing": 1 // Espacio entre los iconitos de las apps en segundo plano
     }
+
+    
 }
