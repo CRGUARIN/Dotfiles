@@ -3,5 +3,5 @@ deps = []
 
 [[flavor.deps]]
 use = "melindachang/kanagawa-paper"
-rev = "d81d84b"
-hash = "785a318dd87925743e26b2de0b6f3afc"
+rev = "7f3cd1d"
+hash = "3f84eceb475a9d1c1ea911d93a1d1898"
