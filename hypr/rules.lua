@@ -1,4 +1,4 @@
--------------------------------
+--------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
 
@@ -96,7 +96,17 @@ hl.window_rule({
 hl.window_rule({
   name  = "move-hyprland-run",
   match = { class = "hyprland-run" },
-
   move  = "20 monitor_h-120",
   float = true,
+})
+
+----------------
+---- LAYERS ----
+----------------
+
+hl.layer_rule({
+  match        = { namespace = "launcher" },
+  blur         = true,
+  dim_around   = true,
+  ignore_alpha = 0.1,
 })

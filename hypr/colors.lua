@@ -1,17 +1,17 @@
 local colores = {
-  primary           = "rgb(9ecafc)",
-  secondary         = "rgb(bac8db)",
-  tertiary          = "rgb(d5bee5)",
-  primary_container = "rgb(164974)",
-  inverse_primary   = "rgb(34618d)",
+  primary           = "rgb(80d4d6)",
+  secondary         = "rgb(b0cccc)",
+  tertiary          = "rgb(b4c8e9)",
+  primary_container = "rgb(004f51)",
+  inverse_primary   = "rgb(00696b)",
 
   -- Los nuevos para bordes inactivos:
-  surface_variant   = "rgb(42474e)",
-  outline_variant   = "rgb(42474e)",
+  surface_variant   = "rgb(3f4949)",
+  outline_variant   = "rgb(3f4949)",
 
-  background        = "rgb(101418)",
-  surface           = "rgb(101418)",
-  foreground        = "rgb(e1e2e8)",
+  background        = "rgb(0e1415)",
+  surface           = "rgb(0e1415)",
+  foreground        = "rgb(dde4e3)",
 }
 
 return colores
