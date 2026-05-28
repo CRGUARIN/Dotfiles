@@ -1,80 +1,89 @@
+/* Importa los colores generados por Matugen */
+@import "colors.css";
+
 /* Configuración general de la fuente y color */
 * {
-    /* IMPORTANTE: Necesitas una Nerd Font instalada para que se vean los íconos */
     font-family: "JetBrainsMono Nerd Font", sans-serif; 
     font-size: 14px;
     font-weight: bold;
-    color: #ffffff; /* Letras totalmente blancas */
+    color: @on_background; /* Texto dinámico (blanco o negro según el fondo) */
     border: none;
     box-shadow: none;
 }
 
-/* El fondo principal de la barra lo hacemos completamente transparente */
+/* Control de la barra completa */
 window#waybar {
-    background-color: transparent;
+    /* Usamos el fondo de Matugen aplicando 80% de opacidad  */
+    background-color: alpha(@background, 0.8); 
+    border-radius: 30px; 
+    border: none; 
 }
 
-/* Aquí creamos el estilo de "PÍLDORA" para los 3 bloques */
-.modules-left,
-.modules-center,
+/* Zonas de la barra (márgenes internos) */
+.modules-left {
+    padding: 6px 0px 6px 15px;
+}
+
+.modules-center {
+    padding: 6px 0px;
+}
+
 .modules-right {
-    background-color: rgba(0, 0, 0, 0.6); /* Negro al 60% de opacidad */
-    border-radius: 30px; /* Bordes extremadamente redondeados para el efecto píldora */
-    padding: 0px 9px; /* Espacio interior para que no quede pegado al borde */
+    padding: 6px 15px 6px 0px;
 }
 
-/* --- Pequeños ajustes para que se vea más limpio --- */
+/* Alineación y Simetría */
+#network, #pulseaudio, #bluetooth, #backlight, #battery {
+    margin-left: 6px; 
+    margin-right: 6px;
+    margin-top: 3px; 
+    transition: color 0.2s ease; 
+}
 
-/* Separación entre los iconos de la derecha */
-#network, #pulseaudio, #backlight, #battery, #tray {
-    margin-left: 5px; 
-    margin-right: 13px;
+#tray {
+    margin-left: 6px; 
+    margin-right: 6px;
+    padding: 0;
+}
+
+/* Efecto hover con el color terciario dinámico para romper la monotonía */
+#network:hover, #pulseaudio:hover, #bluetooth:hover, #backlight:hover, #battery:hover {
+    color: @tertiary;
 }
 
 /* Estilos para los números de los workspaces de Hyprland */
 #workspaces button {
-    color: #aaaaaa; /* Gris claro para los inactivos */
+    color: alpha(@on_background, 0.5); /* Iconos inactivos un toque más apagados */
     padding: 0px 8px;
     border-radius: 15px;
-    transition: all 0.2s ease; /* Pequeña animación al cambiar */
+    transition: all 0.2s ease; 
 }
 
-#tray {
-    margin-left: 5px; /* Esto empuja el tray alejándolo del último ícono (batería) */
-    margin-right: 13px; 
-    /* Mantén las reglas que ya tenías, como estas: */ 
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0.6); 
-}
-
-tooltip {
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 30px; /* Aumenta este padding para darle más aire a la caja */
-}
-
-tooltip label {
-    color: #ffffff;
-    font-family: "JetBrainsMono Nerd Font", sans-serif;
-    font-size: 15px; /* Tamaño base para cosas como WiFi o Batería */
-}
-
-tooltip label tt {
-    font-size: 30px; /* ¡Aquí está la clave! Aumenta esto a 18px, 20px, etc. */
-}
-
-/* Workspace en el que estás actualmente */
 #workspaces button.active {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.2); /* Un fondo blanquito sutil */
+    color: @on_primary; /* Texto que resalte perfectamente sobre el fondo activo */
+    background-color: alpha(@primary, 0.8); /* Fondo del workspace activo usando el primario */
 }
 
-/* Workspace cuando pasas el cursor por encima */
 #workspaces button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: alpha(@surface_variant, 0.4);
     box-shadow: inherit;
     text-shadow: inherit;
 }
 
+/* Estilos de los tooltips emergentes */
+tooltip {
+    background-color: alpha(@surface, 0.95);
+    border: 1px solid alpha(@primary, 0.3); /* Borde sutil con el color principal del fondo */
+    border-radius: 10px;
+    padding: 20px; 
+}
 
+tooltip label {
+    color: @on_surface;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 15px; 
+}
+
+tooltip label tt {
+    font-size: 18px; 
+}

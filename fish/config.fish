@@ -1,11 +1,9 @@
 # Variables de entorno globales
-set -gx EDITOR nvim
-set -gx VISUAL nvim
+set -gx EDITOR neovide --no-fork
+set -gx VISUAL neovide --no-fork
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
 # Inicializaciones y cosmética
-starship init fish | source
-fastfetch

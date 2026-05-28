@@ -72,13 +72,13 @@ hl.bind(mainMod .. " + CONTROL + T", hl.dsp.exec_cmd("kitty --class floatm -e bt
 hl.bind(mainMod .. " + CONTROL + SHIFT   + P", hl.dsp.exec_cmd("neovide ~/Documentos/Notas/Pendientes.md"))
 hl.bind(mainMod .. " + CONTROL + SHIFT   + D", hl.dsp.exec_cmd("neovide ~/Documentos/Notas/Dudas.md"))
 hl.bind(mainMod .. " + CONTROL + SHIFT   + O", hl.dsp.exec_cmd("neovide ~/Documentos/Notas/Observaciones.md"))
-hl.bind(mainMod .. " + CONTROL + P", hl.dsp.exec_cmd("kitty --class pkgtui fish -c 'pkgtui'"))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("kitty --class floats -e qalc"))
+hl.bind(mainMod .. " + CONTROL + P", hl.dsp.exec_cmd("kitty --class pkgtui fish -c 'pkgtui'"))
 
 ---- Utilities (Screenshots, Wallpaper, UI) ----
 
 hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
-hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd("~/.config/hypr/scripts/change_wallpaper.sh"))
+hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd("~/Documentos/Dotfiles/Scripts/change-wallpaper.sh"))
 hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("qs ipc -c overview call overview toggle"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
 hl.bind(mainMod .. " + ALT + R", hl.dsp.exec_cmd(reminder))

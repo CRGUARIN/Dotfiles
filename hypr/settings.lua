@@ -1,3 +1,5 @@
+local col = require("colors")
+
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
@@ -6,10 +8,10 @@ hl.config({
   general = {
     gaps_in          = 5,
     gaps_out         = 10,
-    border_size      = 2,
+    border_size      = 3,
     col              = {
-      active_border   = { colors = { "rgba(00eeffee)", "rgba(ffffffff)" }, angle = 45 },
-      inactive_border = "rgba(595959aa)",
+      active_border   = { colors = { col.primary, col.tertiary, col.primary_container }, angle = 45 },
+      inactive_border = col.surface,
     },
     resize_on_border = false,
     allow_tearing    = false,

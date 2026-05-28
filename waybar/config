@@ -4,22 +4,20 @@
     "margin-top": 10,     
     "margin-left": 20,    
     "margin-right": 20,  
-    "height": 30,        
+    // "height": 30, // Comentado para permitir que la barra calcule su altura ideal automáticamente
     "spacing": 2,        
 
-    // Components
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
     "modules-right": ["tray", "network", "pulseaudio", "bluetooth", "backlight", "battery"],
 
-    // Components configuration
     "hyprland/workspaces": {
         "format": "{name}",     
         "disable-scroll": true, 
         "all-outputs": true, 
         "persistent-workspaces": {
-          "*": [1, 2, 3, 4, 5]
-      },
+            "*": [1, 2, 3, 4, 5]
+        }
     },
    
     "clock": {
@@ -29,7 +27,7 @@
     }, 
 
     "tray": {
-        "spacing": 2
+        "spacing": 12 
     },
 
     "network": {
@@ -40,7 +38,7 @@
         "tooltip-format-ethernet": "Ethernet",
         "tooltip-format-disconnected": "Desactivado",
         "tooltip-format": "Red: {essid}\nIntensidad: {signalStrength}%",
-        "on-click": "kitty --class floats -e nmtui",
+        "on-click": "kitty --class floats -e nmtui"
     },
     
     "pulseaudio": {
@@ -49,15 +47,15 @@
         "format-icons": {
             "default": [" ", " ", "  "]
         },
-        "on-click": "kitty --class floats -e wiremix", // Si haces clic, abre el control de volumen (debes tenerlo instalado)
+        "on-click": "kitty --class floats -e wiremix",
         "tooltip": true,
-        "tooltip-format": "{volume}%",
+        "tooltip-format": "{volume}%"
     },    
     
-     "bluetooth": {
-        "format": "󰂯  ",
-        "format-disabled": "󰂲  ", 
-        "format-connected": "󰂱  ", 
+    "bluetooth": {
+        "format": "󰂯 ",
+        "format-disabled": "󰂲 ", 
+        "format-connected": "󰂱 ", 
         "tooltip-format-connected": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
         "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage}%)",
@@ -66,11 +64,11 @@
 
     "backlight": {
         "format": "{icon}",
-        "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "], // Iconos de Nerd Fonts de menos a más brillo
-        "on-scroll-up": "brightnessctl set +5%",   // Sube el brillo girando la rueda del ratón
+        "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "],
+        "on-scroll-up": "brightnessctl set +5%",
         "tooltip": true,
         "tooltip-format": "{percent}%",
-        "on-scroll-down": "brightnessctl set 5%-"  // Baja el brillo girando la rueda del ratón
+        "on-scroll-down": "brightnessctl set 5%-"
     },
 
     "battery": {
@@ -79,10 +77,9 @@
             "critical": 10
         },
         "format": "{icon}",
+        "format-charging": "󰂄 {capacity}%",
         "format-icons": ["", "", "", "", ""],
         "tooltip": true,
-        "tooltip-format": "{capacity}%",
+        "tooltip-format": "{capacity}%"
     }
-
-    
 }

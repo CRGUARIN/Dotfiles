@@ -72,7 +72,7 @@ hl.window_rule({
 
 -- Float medium size - special workspace // for neovide with "Observaciones.md"
 hl.window_rule({
-  name = "neovided",
+  name = "neovideo",
   match = {
     title = "~/Documentos/Notas/Observaciones.md",
   },

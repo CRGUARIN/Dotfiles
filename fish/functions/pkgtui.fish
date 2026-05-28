@@ -2,10 +2,10 @@ function pkgtui -d "TUI interactiva con pacman, yay, fzf y topgrade"
     clear
 
     # MENÚ PRINCIPAL (Caja compacta segura, input oculto compatible, selección instantánea)
-    set accion (echo -e "1. Instalar paquetes\n2. Desinstalar paquetes\n3. Actualizar todo el sistema\n4. Salir" | fzf --prompt="" --info=hidden --height=12 --layout=reverse --border=rounded --margin=5% --color=pointer:white,marker:white \
+    set accion (echo -e "1. Instalar paquetes\n2. Desinstalar paquetes\n3. Actualizar el sistema\n4. Salir" | fzf --prompt="" --info=hidden --height=12 --layout=reverse --border=rounded --margin=5% --color=pointer:white,marker:white \
         --bind '1:become(echo "1. Instalar paquetes")' \
         --bind '2:become(echo "2. Desinstalar paquetes")' \
-        --bind '3:become(echo "3. Actualizar todo el sistema")' \
+        --bind '3:become(echo "3. Actualizar el sistema")' \
         --bind '4:become(echo "4. Salir")')
 
     switch "$accion"
