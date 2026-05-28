@@ -7,3 +7,4 @@ if status is-interactive
 end
 
 # Inicializaciones y cosmética
+fastfetch
