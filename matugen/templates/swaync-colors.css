@@ -1,0 +1,6 @@
+/* Generado por Matugen para Swaync */
+@define-color theme-bg {{colors.surface.default.hex}};
+@define-color theme-widget {{colors.surface_container_high.default.hex}};
+@define-color theme-text {{colors.on_surface.default.hex}};
+@define-color theme-border {{colors.outline_variant.default.hex}};
+@define-color theme-hover {{colors.primary.default.hex}};

@@ -4,18 +4,18 @@
 
 ---- Applications ----
 
-local mainMod       = "SUPER"
-local terminal      = "kitty --class floatm"
-local fileManager   = "kitty --class floats -e yazi"
-local menu          = "fuzzel"
+local mainMod = "SUPER"
+local terminal = "kitty --class floatm"
+local fileManager = "kitty --class floats -e yazi"
+local menu = "fuzzel"
 
 ---- Scripts ----
 
 -- Reminder --
-local reminder      = "~/Documentos/Dotfiles/Scripts/hypr-reminder.sh"
-local reminderList  = "~/Documentos/Dotfiles/Scripts/hypr-reminder.sh show"
+local reminder = "~/Documentos/Dotfiles/Scripts/hypr-reminder.sh"
+local reminderList = "~/Documentos/Dotfiles/Scripts/hypr-reminder.sh show"
 local reminderClear = "~/Documentos/Dotfiles/Scripts/hypr-reminder.sh clear"
-
+local pkgtui = "~/Documentos/Dotfiles/Scripts/pkgtui.sh"
 
 ----------------------
 ---- KEYBINDINGS -----
@@ -24,10 +24,10 @@ local reminderClear = "~/Documentos/Dotfiles/Scripts/hypr-reminder.sh clear"
 ---- SYSTEM AND SESION ----
 
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + CONTROL + C",
-  hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
--- hl.bind(mainMod .. " + CONTROL + P", hl.dsp.exec_cmd("kitty -e shutdown now"))
--- hl.bind(mainMod .. " + CONTROL + R", hl.dsp.exec_cmd("kitty -e reboot"))
+hl.bind(
+	mainMod .. " + CONTROL + C",
+	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+)
 
 ---- WINDOWS MANAGMENT ----
 
@@ -71,9 +71,10 @@ hl.bind(mainMod .. " + CONTROL + A", hl.dsp.exec_cmd("kitty --class floats -e wi
 hl.bind(mainMod .. " + CONTROL + T", hl.dsp.exec_cmd("kitty --class floatm -e btop"))
 hl.bind(mainMod .. " + CONTROL + SHIFT   + P", hl.dsp.exec_cmd("neovide ~/Documentos/Notas/Pendientes.md"))
 hl.bind(mainMod .. " + CONTROL + SHIFT   + D", hl.dsp.exec_cmd("neovide ~/Documentos/Notas/Dudas.md"))
+hl.bind(mainMod .. " + CONTROL + S", hl.dsp.exec_cmd("~/Documentos/Dotfiles/Scripts/power.sh"))
 hl.bind(mainMod .. " + CONTROL + SHIFT   + O", hl.dsp.exec_cmd("neovide ~/Documentos/Notas/Observaciones.md"))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("kitty --class floats -e qalc"))
-hl.bind(mainMod .. " + CONTROL + P", hl.dsp.exec_cmd("kitty --class pkgtui fish -c 'pkgtui'"))
+hl.bind(mainMod .. " + CONTROL + I", hl.dsp.exec_cmd("kitty --class floatm -e ~/Documentos/Dotfiles/Scripts/pkgtui.sh"))
 
 ---- Utilities (Screenshots, Wallpaper, UI) ----
 
@@ -98,26 +99,46 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:mag
 
 -- Switch workspaces and move windows --
 for i = 1, 10 do
-  local key = i % 10 -- El 10 mapea a la tecla 0
-  hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	local key = i % 10 -- El 10 mapea a la tecla 0
+	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 ---- Hardware (Volume, brightness and multimedia) ----
 
 -- Volume y Microphone --
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-  { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-  { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-  { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-  { locked = true, repeating = true })
+hl.bind(
+	"XF86AudioRaiseVolume",
+	hl.dsp.exec_cmd("swayosd-client --output-volume raise"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioLowerVolume",
+	hl.dsp.exec_cmd("swayosd-client --output-volume lower"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMute",
+	hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMicMute",
+	hl.dsp.exec_cmd("swayosd-client --input-volume mute-toggle"),
+	{ locked = true, repeating = true }
+)
 
 -- Brightness --
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+hl.bind(
+	"XF86MonBrightnessUp",
+	hl.dsp.exec_cmd("swayosd-client --brightness raise"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86MonBrightnessDown",
+	hl.dsp.exec_cmd("swayosd-client --brightness lower"),
+	{ locked = true, repeating = true }
+)
 
 -- Multimedia --
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })

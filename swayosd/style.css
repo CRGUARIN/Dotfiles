@@ -1,0 +1,34 @@
+/* Generado dinámicamente por Matugen para SwayOSD */
+
+/* La ventana general flotante */
+window {
+    background: alpha(#272a2f, 0.8);
+    border: 1px solid alpha(#43474e, 0.3);
+    border-radius: 22px; /* Haciendo match con Swaync */
+}
+
+/* El contenedor interno */
+#osd {
+    color: #e1e2e8;
+    padding: 12px 24px;
+}
+
+/* El icono (el parlantito, el sol de brillo, etc) */
+image {
+    color: #a1cafd;
+    margin-right: 16px;
+}
+
+/* La pista de la barra (la parte vacía) */
+progressbar trough {
+    background: alpha(#43474e, 0.5);
+    border-radius: 12px;
+    min-height: 8px;
+}
+
+/* La barra que se va llenando con el volumen/brillo */
+progressbar progress {
+    background: #a1cafd;
+    border-radius: 12px;
+    min-height: 8px;
+}

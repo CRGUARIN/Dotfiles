@@ -23,3 +23,17 @@ post_hook = 'pkill -USR1 kitty'
 [templates.fuzzel]
 input_path = '~/.config/matugen/templates/colors-fuzzel.ini'
 output_path = '~/Documentos/Dotfiles/fuzzel/colors.ini'
+
+[templates.btop]
+input_path = '~/Documentos/Dotfiles/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR2 btop || true'
+
+[templates.swaync]
+input_path = "~/Documentos/Dotfiles/matugen/templates/swaync-colors.css"
+output_path = "~/Documentos/Dotfiles/swaync/colors.css"
+post_hook = "swaync-client -rs"
+
+[templates.swayosd]
+input_path = "~/.config/matugen/templates/swayosd.css"
+output_path = "~/Documentos/Dotfiles/swayosd/style.css"
