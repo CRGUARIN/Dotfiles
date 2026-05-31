@@ -12,10 +12,9 @@
     ];
 
   # Bootloader -----------------------------------------------------------------------------------------
-  #boot.loader.grub.enable = false;
-  boot.loader.limine.enable = true;
-  #boot.loader.grub.efiSupport = true;
-  #boot.loader.grub.device = "nodev"; 
+  boot.loader.grub.enable = true;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.device = "nodev";
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "victus"; # Define your hostname.
@@ -76,6 +75,13 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = false;
+  
+  # External devices service 
+  services.udisks2.enable = true;
+
+  # Bluetooth service 
+  hardware.bluetooth.enable = true; 
+  hardware.bluetooth.powerOnBoot = false;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -87,9 +93,6 @@
     pulse.enable = true;
     #jack.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.crguarin = {
@@ -120,11 +123,15 @@
   programs.nix-ld.enable = true;
 
   environment.systemPackages = with pkgs; [
+    # Esential 
     pkgs.git
     pkgs.yazi
     pkgs.waybar
     pkgs.swaynotificationcenter
     pkgs.swayosd
+    pkgs.bibata-cursors
+    
+    # Apps 
     pkgs.btop
     pkgs.matugen
     pkgs.spotify
@@ -141,12 +148,18 @@
     pkgs.fastfetch
     pkgs.firefox
     pkgs.wl-clipboard
+    pkgs.nwg-look
+    
     # Screenshots
     pkgs.grim
     pkgs.slurp
     pkgs.swappy
     pkgs.seahorse
     pkgs.lazygit
+    
+    # System
+    pkgs.wiremix
+    pkgs.udiskie
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

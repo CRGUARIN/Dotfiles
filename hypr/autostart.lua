@@ -11,4 +11,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("udiskie --tray")
 	hl.exec_cmd("hyprpm reload -n")
 	hl.exec_cmd("swayosd-server")
+	-- Cursor
+	hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 24")
 end)
