@@ -1,0 +1,7 @@
+[mgr]
+prepend_keymap = [
+	{ on = [ "T" ], run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
+	{ on = [ "M" ], run = "plugin mount", desc = "Open mount tool" },
+	{ on = [ "n" ], run = "shell 'neovide \"$0\" &' --confirm", desc = "Open with Neovide" },
+	{ on = [ "o" ], run = "shell 'obsidian \"$0\" &' --confirm", desc = "Open with Obsidian" },
+]

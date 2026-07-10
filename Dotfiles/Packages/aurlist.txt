@@ -1,0 +1,11 @@
+batctl-tui-bin-debug
+bibata-cursor-theme-bin
+heroic-games-launcher-bin
+onlyoffice-bin
+python-imageio-ffmpeg
+python-screeninfo
+spotify
+topgrade-bin
+waypaper
+yay
+zen-browser-bin

@@ -1,0 +1,134 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 10,     
+    "margin-left": 20,    
+    "margin-right": 20,  
+    // "height": 30, // Comentado para permitir que la barra calcule su altura ideal automáticamente
+    "spacing": 2,        
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    // Añadimos power-profiles-daemon antes de la batería
+    "modules-right": ["group/cajon", "network", "pulseaudio", "bluetooth", "backlight", "power-profiles-daemon", "battery"],
+
+    "hyprland/workspaces": {
+        "format": "{name}",     
+        "disable-scroll": true, 
+        "all-outputs": true, 
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4, 5]
+        }
+    },
+   
+    "clock": {
+        "format": "{:%H:%M • %d.%m}",
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        }
+    }, 
+
+    "tray": {
+        "spacing": 12 
+    },
+
+    "network": {
+        "format-wifi": "󰖩",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "tooltip": true,
+        "tooltip-format-ethernet": "Ethernet",
+        "tooltip-format-disconnected": "Desactivado",
+        "tooltip-format": "Red: {essid}\nIntensidad: {signalStrength}%",
+        "on-click": "kitty --class floats -e nmtui"
+    },
+    
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰝟 ",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "kitty --class floats -e wiremix",
+        "tooltip": true,
+        "tooltip-format": "{volume}%"
+    },    
+    
+    "bluetooth": {
+        "format": "󰂲",
+        "format-disabled": "󰂲", 
+        "format-connected": "󰂱", 
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage}%)",
+        "on-click": "kitty --class floats -e bluetui"
+    },
+
+    "backlight": {
+        "format": "{icon}",
+        "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "],
+        "on-scroll-up": "brightnessctl set +5%",
+        "tooltip": true,
+        "tooltip-format": "{percent}%",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Perfil: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "󰓅 ",
+            "performance": "󰓅 ", // Velocímetro para rendimiento
+            "balanced": "󰾆 ",    // Balanza para balanceado
+            "power-saver": "󰌪 "  // Hoja para ahorro
+        },
+        // ¡Magia! Al hacer clic izquierdo en el ícono de Waybar, se abre tu script de Fuzzel
+        "on-click": "~/Scripts/power_profile.sh"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        // Siempre mostrar el porcentaje además del ícono
+        "format": "{icon}",
+        "format-charging": "󰂄" ,
+        "format-plugged": "",
+        // Actualizados a íconos más modernos de Nerd Fonts
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
+        "tooltip": true,
+        "tooltip-format": "{capacity}%\nSalud: {health}%"
+    },
+
+    "group/cajon": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/flecha",
+            "tray"
+        ],
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false,
+            "click-to-reveal": true
+        }
+    },
+
+    "custom/flecha": {
+        "format": "",
+        "tooltip": false
+    }
+}

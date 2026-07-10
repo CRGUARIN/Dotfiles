@@ -1,0 +1,3 @@
+/home/crguarin/Documentos/Aprendizaje Autónomo/C++/Ejercicios de práctica/lab1_info2/build/CMakeFiles/Lab1.dir
+/home/crguarin/Documentos/Aprendizaje Autónomo/C++/Ejercicios de práctica/lab1_info2/build/CMakeFiles/edit_cache.dir
+/home/crguarin/Documentos/Aprendizaje Autónomo/C++/Ejercicios de práctica/lab1_info2/build/CMakeFiles/rebuild_cache.dir
