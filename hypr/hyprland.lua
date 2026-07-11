@@ -1,0 +1,6 @@
+require("monitors")
+require("settings")
+require("rules")
+require("autostart")
+require("binds")
+require("plugins")

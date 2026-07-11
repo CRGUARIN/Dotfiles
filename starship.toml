@@ -1,0 +1,187 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](fg:bg_1)\
+$os\
+$username\
+[](bg:bg_2 fg:bg_1)\
+$directory\
+[](bg:bg_3 fg:bg_2)\
+$git_branch\
+$git_status\
+[](bg:bg_4 fg:bg_3)\
+$c$cpp$rust$golang$nodejs$bun$php$java$kotlin$haskell$python\
+[](bg:bg_5 fg:bg_4)\
+$docker_context$conda$pixi\
+[](bg:bg_6 fg:bg_5)\
+$time\
+[ ](fg:bg_6)\
+$line_break$character"""
+
+palette = 'matugen'
+
+# Conectado a las variables dinámicas de Matugen
+[palettes.matugen]
+bg_1 = '#82d3e2'
+fg_1 = '#00363e'
+
+bg_2 = '#3f484a'
+fg_2 = '#bfc8ca'
+
+bg_3 = '#bbc5eb'
+fg_3 = '#252f4d'
+
+bg_4 = '#004e59'
+fg_4 = '#9eefff'
+
+bg_5 = '#b1cbd1'
+fg_5 = '#1c3439'
+
+bg_6 = '#0e1416'
+fg_6 = '#dee3e5'
+
+success = '#82d3e2'
+error = '#ffb4ab'
+warning = '#bbc5eb'
+vim_visual = '#b1cbd1'
+
+# --- Símbolos del Prompt ORIGINALES ---
+[character]
+disabled = false
+success_symbol = '[](bold fg:success)'
+error_symbol = '[](bold fg:error)'
+vimcmd_symbol = '[](bold fg:success)'
+vimcmd_replace_one_symbol = '[](bold fg:warning)'
+vimcmd_replace_symbol = '[](bold fg:warning)'
+vimcmd_visual_symbol = '[](bold fg:vim_visual)'
+
+# --- Nivel 1 (Sistema y Usuario) ---
+[os]
+disabled = false
+style = "bg:bg_1 fg:fg_1"
+format = "[$symbol]($style)"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+AOSC = ""
+Arch = "󰣇"
+
+[username]
+show_always = true
+style_user = "bg:bg_1 fg:fg_1"
+style_root = "bg:bg_1 fg:fg_1"
+format = '[ $user ]($style)'
+
+# --- Nivel 2 (Directorio ORIGINAL) ---
+[directory]
+style = "bg:bg_2 fg:fg_2"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+# --- Nivel 3 (Git ORIGINAL) ---
+[git_branch]
+symbol = ""
+style = "bg:bg_3 fg:fg_3"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:bg_3 fg:fg_3"
+format = '[($all_status$ahead_behind )]($style)'
+
+# --- Nivel 4 (Lenguajes) ---
+[nodejs]
+symbol = ""
+style = "bg:bg_4 fg:fg_4"
+format = '[ $symbol( $version) ]($style)'
+
+[bun]
+symbol = ""
+style = "bg:bg_4 fg:fg_4"
+format = '[ $symbol( $version) ]($style)'
+
+[c]
+symbol = " "
+style = "bg:bg_4 fg:fg_4"
+format = '[ $symbol( $version) ]($style)'
+
+[cpp]
+symbol = " "
+style = "bg:bg_4 fg:fg_4"
+format = '[ $symbol( $version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:bg_4 fg:fg_4"
+format = '[ $symbol( $version) ]($style)'
+
+[golang]
+symbol = ""
+style = "bg:bg_4 fg:fg_4"
+format = '[ $symbol( $version) ]($style)'
+
+[php]
+symbol = ""
+style = "bg:bg_4 fg:fg_4"
+format = '[ $symbol( $version) ]($style)'
+
+[java]
+symbol = ""
+style = "bg:bg_4 fg:fg_4"
+format = '[ $symbol( $version) ]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:bg_4 fg:fg_4"
+format = '[ $symbol( $version) ]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:bg_4 fg:fg_4"
+format = '[ $symbol( $version) ]($style)'
+
+# (Python ORIGINAL)
+[python]
+symbol = ""
+style = "bg:bg_4 fg:fg_4"
+format = '[ $symbol( $version) ]($style)'
+
+# --- Nivel 5 (Entornos) ---
+[docker_context]
+symbol = ""
+style = "bg:bg_5 fg:fg_5"
+format = '[ $symbol( $context) ]($style)'
+
+[conda]
+style = "bg:bg_5 fg:fg_5"
+format = '[ $symbol( $environment) ]($style)'
+
+[pixi]
+style = "bg:bg_5 fg:fg_5"
+format = '[ $symbol( $version)( $environment) ]($style)'
+
+# --- Nivel 6 (Tiempo) ---
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:bg_6 fg:fg_6"
+format = '[  $time ]($style)'
